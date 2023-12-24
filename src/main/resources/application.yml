@@ -1,0 +1,18 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017
+      database: test
+  profiles:
+    include: secrets
+
+adapter:
+  http:
+    nexon:
+      base-url: https://open.api.nexon.com
+      nxopen-api-key: api-key
+      response-time-out-ms: 3000
+
+logging:
+  level:
+    reactor.netty.http.client: DEBUG
