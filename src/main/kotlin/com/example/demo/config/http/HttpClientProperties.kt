@@ -1,4 +1,4 @@
-package com.example.demo.core.http
+package com.example.demo.config.http
 
 open class HttpClientProperties(
     var baseUrl: String? = null,

@@ -1,7 +1,6 @@
 package com.example.demo.character.controller.message
 
 abstract class SearchCharacterOcid {
-
     data class PathVariable(
         val name: String,
     )

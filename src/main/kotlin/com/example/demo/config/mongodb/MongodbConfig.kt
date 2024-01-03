@@ -1,4 +1,4 @@
-package com.example.demo.core.mongodb
+package com.example.demo.config.mongodb
 
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Configuration
@@ -18,13 +18,12 @@ class MongodbConfig(
     @Value("\${spring.data.mongodb.database}")
     val database: String,
 ) : AbstractReactiveMongoConfiguration() {
-
     override fun getDatabaseName(): String = database
 
     override fun mappingMongoConverter(
         databaseFactory: ReactiveMongoDatabaseFactory,
         customConversions: MongoCustomConversions,
-        mappingContext: MongoMappingContext
+        mappingContext: MongoMappingContext,
     ): MappingMongoConverter {
         return MappingMongoConverter(
             ReactiveMongoTemplate.NO_OP_REF_RESOLVER,

@@ -8,9 +8,7 @@ import org.springframework.stereotype.Service
 class SearchCharacterOcidUseCase(
     private val nexonAdapter: NexonAdapter,
 ) {
-    suspend fun search(
-        request: SearchCharacterOcid.PathVariable
-    ): SearchCharacterOcid.Response {
+    suspend fun search(request: SearchCharacterOcid.PathVariable): SearchCharacterOcid.Response {
         return nexonAdapter.searchCharacterId(request.name)
             .let {
                 SearchCharacterOcid.Response(

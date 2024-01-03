@@ -13,18 +13,17 @@ class MongodbTestAdapter(
     private val mongodbTestRepository: MongodbTestRepository,
     private val reactiveMongoTemplate: ReactiveMongoTemplate,
 ) {
-
-    /* repository 버전 */
+    // repository 버전
     suspend fun findById(id: String): TestDocument {
         return mongodbTestRepository.findById(id)
             ?: throw RuntimeException("cannot find test id: $id")
     }
 
-    /* mongoTemplate 버전 */
+    // mongoTemplate 버전
     suspend fun findByIdV2(id: String): TestDocument {
         return reactiveMongoTemplate.find(
             query(
-                where(TestDocument::id.name).`is`(id)
+                where(TestDocument::id.name).`is`(id),
             ),
             TestDocument::class.java,
         ).awaitFirstOrNull()
